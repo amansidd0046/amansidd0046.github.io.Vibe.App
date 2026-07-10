@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vibe — Social Media</title>
+  <meta name="description" content="Vibe - Connect, share, and discover.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/variables.css">
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/components.css">
+  <link rel="stylesheet" href="./css/layout.css">
+  <link rel="stylesheet" href="./css/feed.css">
+  <link rel="stylesheet" href="./css/profile.css">
+  <link rel="stylesheet" href="./css/auth.css">
+  <link rel="stylesheet" href="./css/animations.css">
+</head>
+<body>
+
+  <!-- AUTH SCREEN -->
+  <div id="auth-screen" class="auth-screen">
+    <div class="auth-bg">
+      <div class="auth-orb auth-orb-1"></div>
+      <div class="auth-orb auth-orb-2"></div>
+      <div class="auth-orb auth-orb-3"></div>
+    </div>
+    <div class="auth-container">
+      <div class="auth-card">
+        <div class="auth-logo">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="18" stroke="url(#lg)" stroke-width="3"/><path d="M14 20c0-4 2.5-7 6-7s6 3 6 7-2.5 7-6 7-6-3-6-7z" fill="url(#lg)"/><defs><linearGradient id="lg" x1="0" y1="0" x2="40" y2="40"><stop stop-color="#6c5ce7"/><stop offset="1" stop-color="#fd79a8"/></linearGradient></defs></svg>
+          <h1>Vibe</h1>
+        </div>
+        <p class="auth-tagline">Connect. Share. Discover.</p>
+
+        <!-- Login Form -->
+        <form id="login-form" class="auth-form">
+          <h2>Welcome back</h2>
+          <div class="input-group">
+            <input type="text" id="login-username" placeholder=" " required autocomplete="username">
+            <label for="login-username">Username</label>
+          </div>
+          <div class="input-group">
+            <input type="password" id="login-password" placeholder=" " required autocomplete="current-password">
+            <label for="login-password">Password</label>
+          </div>
+          <div id="login-error" class="auth-error"></div>
+          <button type="submit" class="btn btn-primary btn-full" id="login-btn">Sign In</button>
+          <p class="auth-switch">Don't have an account? <a href="#" id="show-register">Sign Up</a></p>
+          <div class="auth-demo">
+            <button type="button" class="btn btn-ghost btn-full" id="demo-login-btn">🚀 Try Demo Account</button>
+          </div>
+        </form>
+
+        <!-- Register Form -->
+        <form id="register-form" class="auth-form hidden">
+          <h2>Create account</h2>
+          <div class="input-group">
+            <input type="text" id="reg-displayname" placeholder=" " required>
+            <label for="reg-displayname">Display Name</label>
+          </div>
+          <div class="input-group">
+            <input type="text" id="reg-username" placeholder=" " required autocomplete="username">
+            <label for="reg-username">Username</label>
+          </div>
+          <div class="input-group">
+            <input type="email" id="reg-email" placeholder=" " required autocomplete="email">
+            <label for="reg-email">Email</label>
+          </div>
+          <div class="input-group">
+            <input type="password" id="reg-password" placeholder=" " required minlength="6" autocomplete="new-password">
+            <label for="reg-password">Password</label>
+          </div>
+          <div id="register-error" class="auth-error"></div>
+          <button type="submit" class="btn btn-primary btn-full" id="register-btn">Create Account</button>
+          <p class="auth-switch">Already have an account? <a href="#" id="show-login">Sign In</a></p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN APP SHELL -->
+  <div id="app-shell" class="app-shell hidden">
+
+    <!-- Left Sidebar -->
+    <aside id="sidebar" class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <svg width="32" height="32" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="18" stroke="url(#lg2)" stroke-width="3"/><path d="M14 20c0-4 2.5-7 6-7s6 3 6 7-2.5 7-6 7-6-3-6-7z" fill="url(#lg2)"/><defs><linearGradient id="lg2" x1="0" y1="0" x2="40" y2="40"><stop stop-color="#6c5ce7"/><stop offset="1" stop-color="#fd79a8"/></linearGradient></defs></svg>
+          <span class="logo-text">Vibe</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="#/feed" class="nav-item active" data-route="feed" id="nav-feed">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <span>Feed</span>
+        </a>
+        <a href="#/explore" class="nav-item" data-route="explore" id="nav-explore">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>Explore</span>
+        </a>
+        <a href="#" class="nav-item" data-route="profile" id="nav-profile">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span>Profile</span>
+        </a>
+      </nav>
+
+      <button class="create-post-btn" id="open-create-post">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        <span>Create Post</span>
+      </button>
+
+      <div class="sidebar-user" id="sidebar-user">
+        <!-- Filled by JS -->
+      </div>
+    </aside>
+
+    <!-- Mobile Top Bar -->
+    <header class="mobile-header" id="mobile-header">
+      <div class="sidebar-logo">
+        <svg width="28" height="28" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="18" stroke="url(#lg3)" stroke-width="3"/><path d="M14 20c0-4 2.5-7 6-7s6 3 6 7-2.5 7-6 7-6-3-6-7z" fill="url(#lg3)"/><defs><linearGradient id="lg3" x1="0" y1="0" x2="40" y2="40"><stop stop-color="#6c5ce7"/><stop offset="1" stop-color="#fd79a8"/></linearGradient></defs></svg>
+        <span class="logo-text">Vibe</span>
+      </div>
+      <button class="btn btn-icon" id="mobile-create-post">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </button>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" class="main-content"></main>
+
+    <!-- Right Sidebar -->
+    <aside id="right-sidebar" class="right-sidebar">
+      <div id="suggestions-widget" class="widget"></div>
+    </aside>
+
+    <!-- Mobile Bottom Nav -->
+    <nav class="mobile-nav" id="mobile-nav">
+      <a href="#/feed" class="mobile-nav-item active" data-route="feed">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </a>
+      <a href="#/explore" class="mobile-nav-item" data-route="explore">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </a>
+      <a href="#" class="mobile-nav-item" data-route="profile">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </a>
+    </nav>
+  </div>
+
+  <!-- CREATE POST MODAL -->
+  <div id="create-post-modal" class="modal hidden">
+    <div class="modal-overlay"></div>
+    <div class="modal-content create-post-content">
+      <div class="modal-header">
+        <h3>Create Post</h3>
+        <button class="btn btn-icon modal-close" id="close-create-post">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="create-post-user" id="create-post-user"></div>
+        <textarea id="post-content" class="create-post-textarea" placeholder="What's on your mind?" maxlength="1000"></textarea>
+        <div class="create-post-image-preview hidden" id="image-preview-container">
+          <img id="image-preview" src="" alt="Preview">
+          <button class="btn btn-icon remove-image" id="remove-image">&times;</button>
+        </div>
+        <div class="create-post-actions">
+          <div class="create-post-tools">
+            <label class="btn btn-ghost btn-sm create-post-tool" id="add-image-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              <span>Photo</span>
+              <input type="file" id="post-image-file" class="hidden" accept="image/*">
+            </label>
+          </div>
+          <div class="create-post-submit">
+            <span class="char-count" id="char-count">0/1000</span>
+            <button class="btn btn-primary" id="submit-post" disabled>Post</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- EDIT PROFILE MODAL -->
+  <div id="edit-profile-modal" class="modal hidden">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Edit Profile</h3>
+        <button class="btn btn-icon modal-close" id="close-edit-profile">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="input-group">
+          <input type="text" id="edit-displayname" placeholder=" ">
+          <label for="edit-displayname">Display Name</label>
+        </div>
+        <div class="input-group">
+          <input type="text" id="edit-bio" placeholder=" ">
+          <label for="edit-bio">Bio</label>
+        </div>
+        <div class="input-group">
+          <input type="text" id="edit-avatar" placeholder=" ">
+          <label for="edit-avatar">Avatar URL</label>
+        </div>
+        <button class="btn btn-primary btn-full" id="save-profile">Save Changes</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <script src="./js/utils.js"></script>
+  <script src="./js/api.js"></script>
+  <script src="./js/auth.js"></script>
+  <script src="./js/feed.js"></script>
+  <script src="./js/profile.js"></script>
+  <script src="./js/create-post.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>
